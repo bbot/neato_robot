@@ -49,7 +49,7 @@ class NeatoNode:
         """ Start up connection to the Neato Robot. """
         rospy.init_node('neato')
 
-        self.port = rospy.get_param('~port', "/dev/ttyUSB0")
+        self.port = rospy.get_param('~port', "/dev/ttyACM0")
         rospy.loginfo("Using port: %s"%(self.port))
 
         self.robot = xv11(self.port)
