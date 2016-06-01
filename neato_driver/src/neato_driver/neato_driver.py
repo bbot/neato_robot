@@ -33,6 +33,7 @@ ROS Bindings can be found in the neato_node package.
 __author__ = "ferguson@cs.albany.edu (Michael Ferguson)"
 
 import serial
+import time
 
 BASE_WIDTH = 248    # millimeters
 MAX_SPEED = 300     # millimeters/second
@@ -106,6 +107,8 @@ class xv11():
         # turn things on
         self.setTestMode("on")
         self.setLDS("on")
+	print "[INFO] Waiting for LIDAR sensor to spin up"
+	time.sleep(1)
 
     def exit(self):
         self.setLDS("off")
